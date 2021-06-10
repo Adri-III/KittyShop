@@ -1,0 +1,88 @@
+<body>
+
+  <div class="jumbotron jumbotron2-hero">
+    <div class="containerMain">
+    <br>
+    <right><h2>MEE<strong>OOO</strong>W</h2></right>
+    <right><h6>*just <strong> edit</strong> and came back quickly ! W<strong>OOO</strong>W !</h6></right>
+    </div>
+  </div>
+</body>
+<br>
+
+  <div style="height:10vh; display:flex; justify-content:center;"   >
+    <div style="display: flex ;justify-content:center">
+      <h2><strong>Edit <%= resource_name.to_s.humanize %></strong></h2>
+    </div>
+  </div>
+
+  <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+          <br>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, autocomplete: "new-first_name", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, autocomplete: "new-las_name", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :email, "Email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="form-group">
+                <%= f.label :password %><br><i> (Leave blank if you don't want to change)</i>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>  
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :current_password %>
+                  <br>
+                  <i>(We need your current password to confirm your changes)</i>
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+            
+              <div class="actions mt-5">
+                <%= f.submit "Edit", class: "btn btn-lg btn-primary btn-block" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div style="display:flex; justify-content:center">
+        <h3><strong>Delete my account</strong></h3>
+      </div>
+      <p>
+      <div style="display:flex; justify-content:center; padding-bottom:10px;">
+      <br>
+        <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure ?" }, method: :delete %>
+      </div>
+      </p>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- IL FAUT ABOSLUMENT RAJOUTER LA BIO (DESCRIPTION ) ainsi que la photo et les noms de user pour le show-->

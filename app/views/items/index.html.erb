@@ -1,0 +1,21 @@
+
+<%= render 'layouts/banner' %>
+<br>
+  
+<div class='containerfluid row ml-2 mr-2 d-flex justify-content-around gx-0 mb-5'>
+
+  <% @items.each do |item| %>
+
+    <div class="card m-4" style="width: 22rem;">
+   <%= image_tag ("6.jpg") %>
+      <div class="card-body">
+        <h5 class="card-title"><%= item.title %></h5>
+        <p class="card-text"><%= item.description %></p>
+       
+		<%= link_to "Show", item_path(item), class: "btn btn-primary" %>
+      </div>
+    </div>
+
+  <% end %>
+
+<div>
